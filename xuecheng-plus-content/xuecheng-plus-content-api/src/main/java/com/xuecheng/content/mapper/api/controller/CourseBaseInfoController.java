@@ -4,9 +4,8 @@ import com.xuecheng.base.model.PageParams;
 import com.xuecheng.base.model.PageResult;
 import com.xuecheng.content.model.dto.QueryCourseParamsDto;
 import com.xuecheng.content.model.po.CourseBase;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author : yin
@@ -15,8 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class CourseBaseInfoController {
+    @ApiOperation("页面查询")
     @PostMapping("/course/list")
-public PageResult<CourseBase> list(PageParams pageparams, QueryCourseParamsDto queryCourseParams){
-    return null;
-}
+    public PageResult<CourseBase> list(PageParams pageparams,@RequestBody(required = false) QueryCourseParamsDto queryCourseParams) {
+        return null;
+    }
 }

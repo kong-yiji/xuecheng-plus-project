@@ -1,9 +1,22 @@
-package com.xuecheng.content.model.dto;
+package com.xuecheng.content.mapper.model.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author : yin
  * @Date: 2023/4/23
- * @Description:
+ * @Description:课程查询参数
  */
+@AllArgsConstructor
+@Data
+@NoArgsConstructor
 public class QueryCourseParamsDto {
+    //审核状态
+    private String auditStatus;
+    //课程名称
+    private String courseName;
+    //发布状态
+    private String publishStatus;
 }
