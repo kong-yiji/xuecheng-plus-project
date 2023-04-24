@@ -9,7 +9,7 @@
     </parent>
     <artifactId>xuecheng-plus-content-model</artifactId>
 
-
+`
     <dependencies>
         <dependency>
             <groupId>com.xuecheng</groupId>

@@ -1,4 +1,4 @@
-package com.xuecheng.content.mapper.model.dto;
+package com.xuecheng.content.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

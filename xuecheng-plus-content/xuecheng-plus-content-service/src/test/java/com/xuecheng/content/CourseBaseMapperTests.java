@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xuecheng.base.model.PageParams;
 import com.xuecheng.base.model.PageResult;
 import com.xuecheng.content.mapper.CourseBaseMapper;
-import com.xuecheng.content.mapper.model.dto.QueryCourseParamsDto;
-import com.xuecheng.content.mapper.model.po.CourseBase;
+import com.xuecheng.content.model.dto.QueryCourseParamsDto;
+import com.xuecheng.content.model.po.CourseBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.util.StringUtils;
@@ -20,6 +20,7 @@ import java.util.List;
  * @Date: 2023/4/23
  * @Description:
  */
+
 @SpringBootTest
 public class CourseBaseMapperTests {
     @Autowired

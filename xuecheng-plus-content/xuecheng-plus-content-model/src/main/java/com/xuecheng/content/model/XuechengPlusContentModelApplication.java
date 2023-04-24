@@ -1,4 +1,4 @@
-package com.xuecheng.content.mapper.model;
+package com.xuecheng.content.model;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
