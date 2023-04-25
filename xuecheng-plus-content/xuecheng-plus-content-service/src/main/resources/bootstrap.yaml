@@ -7,5 +7,5 @@ spring:
 # 日志文件配置路径
 logging:
   config: classpath:log4j2-dev.xml
-mybatis-plus:
-  type-aliases-package: com.xuecheng.content.model.po
+#mybatis-plus:
+#  type-aliases-package: com.xuecheng.content.model.po
