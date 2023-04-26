@@ -1,6 +1,6 @@
-package com.xuecheng.content.dto;
+package com.xuecheng.content.model.dto;
 
-import com.xuecheng.content.po.CourseBase;
+import com.xuecheng.content.model.po.CourseBase;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package com.xuecheng.content.api.api.base.model;
+package com.xuecheng.base.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.xuecheng.content.api.generator;
+package com.xuecheng.content.generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.FieldFill;
