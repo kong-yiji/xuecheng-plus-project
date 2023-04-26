@@ -1,4 +1,4 @@
-package com.xuecheng.content.model.po;
+package com.xuecheng.content.po;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;

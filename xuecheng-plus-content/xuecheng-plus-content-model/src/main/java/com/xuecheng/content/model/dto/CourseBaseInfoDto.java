@@ -1,12 +1,9 @@
-package com.xuecheng.content.model.dto;
+package com.xuecheng.content.dto;
 
-import com.xuecheng.content.model.po.CourseBase;
-import io.swagger.annotations.ApiModelProperty;
+import com.xuecheng.content.po.CourseBase;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.math.BigDecimal;
 
 /**
  * @description 课程基本信息dto
