@@ -92,11 +92,20 @@
             m1.media_id mediaId
 
         from teachplan one
-                 INNER JOIN teachplan two on one.id = two.parentid
+                 left JOIN teachplan two on one.id = two.parentid
                  LEFT JOIN teachplan_media m1 on m1.teachplan_id = two.id
         where one.parentid = 0 and one.course_id=#{value}
         order by one.orderby,
                  two.orderby
+    </select>
+
+<!--    <select id="getPreTeachPlan" resultType="com.xuecheng.content.model.po.Teachplan">-->
+<!--        select <include refid="Base_Column_List"/> from teachplan where orderby<#{orderBy}-->
+<!--        order by orderby desc limit 0,1-->
+<!--    </select>-->
+    <select id="getMaxOrder" resultType="java.lang.Integer">
+        select max(orderby) from teachplan where course_id=#{courseId}
+         and parentid=#{parentId}
     </select>
 
 </mapper>
