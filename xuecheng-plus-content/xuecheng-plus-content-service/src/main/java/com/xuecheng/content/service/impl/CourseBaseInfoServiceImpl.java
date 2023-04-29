@@ -3,18 +3,14 @@ package com.xuecheng.content.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xuecheng.base.exception.XueChengPlusException;
-import com.xuecheng.content.mapper.CourseBaseMapper;
-import com.xuecheng.content.mapper.CourseCategoryMapper;
-import com.xuecheng.content.mapper.CourseMarketMapper;
+import com.xuecheng.content.mapper.*;
 import com.xuecheng.content.model.dto.AddCourseDto;
 import com.xuecheng.content.model.dto.CourseBaseInfoDto;
 import com.xuecheng.base.model.PageParams;
 import com.xuecheng.base.model.PageResult;
 import com.xuecheng.content.model.dto.EditCourseDto;
 import com.xuecheng.content.model.dto.QueryCourseParamsDto;
-import com.xuecheng.content.model.po.CourseBase;
-import com.xuecheng.content.model.po.CourseCategory;
-import com.xuecheng.content.model.po.CourseMarket;
+import com.xuecheng.content.model.po.*;
 import com.xuecheng.content.service.CourseBaseInfoService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -38,6 +34,12 @@ public class CourseBaseInfoServiceImpl  implements CourseBaseInfoService {
     CourseMarketMapper courseMarketMapper;
     @Autowired
     CourseCategoryMapper courseCategoryMapper;
+    @Autowired
+    TeachplanMapper teachplanMapper;
+    @Autowired
+    TeachplanMediaMapper teachplanMediaMapper;
+    @Autowired
+    CourseTeacherMapper courseTeacherMapper;
     @Override
     public PageResult<CourseBase> queryBaseList(PageParams pageParams, QueryCourseParamsDto queryCourseParamsDto) {
         //构建查询条件对象
@@ -197,5 +199,30 @@ public class CourseBaseInfoServiceImpl  implements CourseBaseInfoService {
         CourseBaseInfoDto courseBaseInfo = this.getCourseBaseInfo(courseId);
         return courseBaseInfo;
 
+    }
+    /***
+     * @author yin
+     *  2023/4/29  11:51
+     * @author yin
+      *Description:删除后从数据库确认课程基本信息、课程营销信息、课程计划、课程计划关联信息、课程师资是否删除成功。
+     */
+    @Transactional
+    @Override
+    public void deleteCourseBase(Long id) {
+        //删除基本信息
+     courseBaseMapper.deleteById(id);
+     //删除营销信息
+     courseMarketMapper.deleteById(id);
+     //删除最章节信息
+     LambdaQueryWrapper<Teachplan>tq=new LambdaQueryWrapper<>();
+     tq.eq(Teachplan::getCourseId,id);
+     teachplanMapper.delete(tq);
+     //删除相关媒体信息
+        LambdaQueryWrapper<TeachplanMedia>queryWrapper=new LambdaQueryWrapper<>();
+        queryWrapper.eq(TeachplanMedia::getCourseId,id);
+     //删除师资信息
+     LambdaQueryWrapper<CourseTeacher>cq=new LambdaQueryWrapper<>();
+     cq.eq(CourseTeacher::getCourseId,id);
+     courseTeacherMapper.delete(cq);
     }
 }
